@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ashutosh Singh — AI/ML, Data Science, Computer Vision and Analytics portfolio." />
+  <title>Ashutosh Singh | AI/ML • Data • Analytics</title>
+  <style>
+    :root{
+      --bg:#070b12;
+      --panel:#0d1420;
+      --panel2:#101a29;
+      --text:#f5f7fb;
+      --muted:#9ba8bc;
+      --line:rgba(255,255,255,.09);
+      --accent:#67e8f9;
+      --accent2:#a78bfa;
+      --good:#7dd3fc;
+      --shadow:0 22px 60px rgba(0,0,0,.36);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(103,232,249,.10), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(167,139,250,.11), transparent 30%),
+        linear-gradient(180deg,#070b12 0%,#08101b 54%,#070b12 100%);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1140px,92vw);margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(18px);
+      background:rgba(7,11,18,.68);
+      border-bottom:1px solid var(--line)
+    }
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:24px;align-items:center;font-size:14px;color:var(--muted)}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(103,232,249,.26);background:rgba(103,232,249,.08);color:#dffbff
+    }
+    .hero{padding:94px 0 76px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:#c9d5e6;background:rgba(255,255,255,.03);font-size:13px}
+    .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px rgba(103,232,249,.8)}
+    h1{font-size:clamp(48px,7vw,82px);line-height:.98;letter-spacing:-.055em;margin:24px 0 20px;max-width:820px}
+    .gradient{background:linear-gradient(90deg,#f5f7fb 10%,#bdf7ff 48%,#c9bbff 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy{font-size:18px;color:#b4bfd0;max-width:680px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 17px;border-radius:14px;border:1px solid var(--line);font-weight:700;font-size:14px;transition:.22s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.18)}
+    .btn-primary{background:#f4fbff;color:#0a1018;border-color:#f4fbff;box-shadow:0 12px 30px rgba(244,251,255,.14)}
+    .btn-ghost{background:rgba(255,255,255,.03);color:#e8edf6}
+    .hero-card{position:relative}
+    .profile-card{padding:26px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,26,41,.95),rgba(13,20,32,.92));border-radius:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .profile-card:before{content:"";position:absolute;inset:-35% auto auto -10%;width:240px;height:240px;background:radial-gradient(circle,rgba(103,232,249,.18),transparent 68%);pointer-events:none}
+    .avatar{width:104px;height:104px;border-radius:26px;object-fit:cover;border:1px solid rgba(255,255,255,.15);display:block;background:#152235}
+    .profile-name{font-size:24px;font-weight:800;margin-top:18px}
+    .profile-role{color:var(--muted);margin-top:3px}
+    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+    .mini{padding:13px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:15px}
+    .mini strong{display:block;font-size:19px}
+    .mini span{font-size:12px;color:var(--muted)}
+    .signal{margin-top:18px;padding:14px 15px;border-radius:17px;background:rgba(103,232,249,.07);border:1px solid rgba(103,232,249,.15);color:#cceff4;font-size:13px}
+    section{padding:86px 0;border-top:1px solid rgba(255,255,255,.045)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}
+    .section-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:800}
+    h2{font-size:38px;line-height:1.05;letter-spacing:-.04em;margin:8px 0 0}
+    .section-intro{max-width:590px;color:var(--muted);margin:0}
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .panel{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:var(--radius);padding:28px;box-shadow:0 14px 40px rgba(0,0,0,.18)}
+    .lead{font-size:18px;color:#d8e2ee;margin:0 0 16px}
+    .muted{color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    .chip{padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:13px;color:#d3dcea}
+    .stack{display:grid;gap:13px}
+    .stack-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .stack-row:last-child{border-bottom:0}
+    .stack-row span{color:var(--muted);font-size:13px}
+    .stack-row strong{font-size:14px;text-align:right}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .project{padding:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.02));border-radius:22px;transition:.22s ease;position:relative;overflow:hidden}
+    .project:hover{transform:translateY(-4px);border-color:rgba(103,232,249,.22);box-shadow:0 20px 44px rgba(0,0,0,.22)}
+    .project:after{content:"";position:absolute;inset:auto -15% -50% auto;width:220px;height:220px;background:radial-gradient(circle,rgba(167,139,250,.12),transparent 68%)}
+    .project-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+    .project-icon{font-size:24px}
+    .project-title{font-size:21px;font-weight:800;letter-spacing:-.02em}
+    .project-type{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-top:4px}
+    .project-desc{color:#b8c3d3;font-size:14px;margin:14px 0 16px}
+    .tags{display:flex;flex-wrap:wrap;gap:7px}
+    .tag{font-size:11px;color:#c8d7e8;background:#0b1420;border:1px solid var(--line);padding:6px 8px;border-radius:9px}
+    .project-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}
+    .link{font-size:13px;font-weight:750;color:#e9faff}
+    .link span{color:var(--accent);margin-left:5px}
+    .experience{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .timeline-card{padding:24px;border-left:2px solid rgba(103,232,249,.32);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0 20px 20px 0;background:rgba(255,255,255,.02)}
+    .time{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    .role{font-size:21px;font-weight:800;margin:7px 0 0}
+    .org{color:#c0cad9}
+    .timeline-card p{color:var(--muted);font-size:14px}
+    .timeline-card ul{margin:12px 0 0;padding-left:18px;color:#bdc8d8;font-size:14px}
+    .timeline-card li+li{margin-top:7px}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+    .contact-card{padding:30px;border-radius:28px;border:1px solid rgba(103,232,249,.16);background:linear-gradient(145deg,rgba(103,232,249,.08),rgba(167,139,250,.07))}
+    .contact-card h3{font-size:31px;line-height:1.05;letter-spacing:-.035em;margin:0 0 12px}
+    .contact-list{display:grid;gap:11px}
+    .contact-item{padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.12)}
+    .contact-item small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.15em}
+    .contact-item span{display:block;margin-top:2px;color:#e9eef7;font-weight:650}
+    footer{padding:30px 0 48px;color:#7e8aa0;font-size:12px}
+    .footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+    .reveal{opacity:0;transform:translateY(14px);animation:rise .7s ease forwards}
+    .delay-1{animation-delay:.08s}.delay-2{animation-delay:.16s}.delay-3{animation-delay:.24s}
+    @keyframes rise{to{opacity:1;transform:translateY(0)}}
+    @media (max-width: 900px){
+      .hero-grid,.about,.contact,.experience{grid-template-columns:1fr}
+      .hero{padding-top:64px}
+    }
+    @media (max-width: 680px){
+      .nav-links a:not(.nav-cta){display:none}
+      .nav-inner{height:68px}
+      h1{font-size:54px}
+      h2{font-size:32px}
+      .projects{grid-template-columns:1fr}
+      section{padding:68px 0}
+      .section-head{display:block}
+      .section-intro{margin-top:12px}
+      .mini-grid{grid-template-columns:1fr 1fr}
+      .footer-inner{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Ashutosh<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://github.com/Optimus0205" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow reveal"><span class="dot"></span> Building applied AI & data solutions</div>
+          <h1 class="reveal delay-1">Ashutosh Singh<br><span class="gradient">AI • Data • Engineering</span></h1>
+          <p class="hero-copy reveal delay-2">Production & Industrial Engineering student at NIT Jamshedpur, building end-to-end projects across machine learning, deep learning, computer vision, analytics and Generative AI.</p>
+          <div class="hero-actions reveal delay-3">
+            <a class="btn btn-primary" href="#projects">Explore projects ↓</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/ashutosh-s2504/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-ghost" href="mailto:0204ashutosh@gmail.com">Email me ↗</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal delay-2">
+          <div class="profile-card">
+            <img class="avatar" src="https://github.com/Optimus0205.png" alt="Ashutosh Singh GitHub avatar" />
+            <div class="profile-name">Applied AI builder</div>
+            <div class="profile-role">Data Science · ML · CV · GenAI · Analytics</div>
+            <div class="mini-grid">
+              <div class="mini"><strong>16</strong><span>Public repositories</span></div>
+              <div class="mini"><strong>6+</strong><span>Featured projects</span></div>
+              <div class="mini"><strong>Python</strong><span>Core build language</span></div>
+              <div class="mini"><strong>NITJ</strong><span>NIT Jamshedpur</span></div>
+            </div>
+            <div class="signal">Currently exploring LLMs, RAG pipelines, LangChain and Hugging Face — while keeping a strong analytics + industrial-engineering perspective.</div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">01 / About</div><h2>A hybrid profile built for real problems.</h2></div>
+          <p class="section-intro">The combination of analytics, AI and industrial-engineering fundamentals helps me connect technical work with business and operational context.</p>
+        </div>
+        <div class="about">
+          <div class="panel">
+            <p class="lead">I enjoy taking messy data or an ambiguous problem and turning it into something usable — a model, dashboard, application or optimization workflow.</p>
+            <p class="muted">My learning path has moved from data science and machine learning into deep learning, NLP, computer vision and now Generative AI. Alongside AI, I keep building practical analytics and supply-chain projects because I like understanding how technical decisions affect real operations.</p>
+            <div class="skills">
+              <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Machine Learning</span><span class="chip">Deep Learning</span><span class="chip">Computer Vision</span><span class="chip">NLP</span><span class="chip">GenAI / RAG</span><span class="chip">Optimization</span>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="stack">
+              <div class="stack-row"><span>Education</span><strong>B.Tech · Production & Industrial Engineering</strong></div>
+              <div class="stack-row"><span>Institute</span><strong>NIT Jamshedpur</strong></div>
+              <div class="stack-row"><span>Core interests</span><strong>Applied AI, Analytics, Data Products</strong></div>
+              <div class="stack-row"><span>Strength</span><strong>End-to-end project building</strong></div>
+              <div class="stack-row"><span>GitHub</span><strong>@Optimus0205</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">02 / Selected work</div><h2>Projects that show how I think.</h2></div>
+          <p class="section-intro">A recruiter-friendly snapshot of the work currently featured on my GitHub — from forecasting and BI to computer vision and optimization.</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">Sales Forecasting Dashboard</div><div class="project-type">Analytics + Forecasting</div></div><div class="project-icon">📈</div></div>
+            <p class="project-desc">Interactive sales analytics app with SARIMA forecasting, anomaly detection and product demand segmentation. Designed to turn a notebook analysis into a deployable decision-support experience.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">SARIMA</span><span class="tag">Isolation Forest</span><span class="tag">K-Means</span><span class="tag">Plotly</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/Sales-Forecasting-App" target="_blank" rel="noreferrer">Source code <span>↗</span></a><a class="link" href="https://salesforecasting-dashboard.streamlit.app" target="_blank" rel="noreferrer">Live demo <span>↗</span></a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">Gurgaon Real Estate</div><div class="project-type">ML Application</div></div><div class="project-icon">🏠</div></div>
+            <p class="project-desc">Multi-page Streamlit app combining property price prediction, interactive market analytics and a content-based apartment recommendation engine.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">scikit-learn</span><span class="tag">Cosine Similarity</span><span class="tag">Matplotlib</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/Real-estate-app" target="_blank" rel="noreferrer">Source code <span>↗</span></a><a class="link" href="https://gurgaonreal-estate.streamlit.app" target="_blank" rel="noreferrer">Live demo <span>↗</span></a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">Self-Driving Car</div><div class="project-type">Computer Vision + DL</div></div><div class="project-icon">🚗</div></div>
+            <p class="project-desc">End-to-end autonomous-driving perception and control pipeline combining steering prediction, lane segmentation and object detection in a concurrent real-time simulation.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">CNN</span><span class="tag">YOLO11</span><span class="tag">Segmentation</span><span class="tag">Real-time inference</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/Self-Driving-Car" target="_blank" rel="noreferrer">Source code <span>↗</span></a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">Image Prediction App</div><div class="project-type">Computer Vision</div></div><div class="project-icon">🔍</div></div>
+            <p class="project-desc">Interactive object-detection application using a custom YOLOv11 model, with both Streamlit and Flask frontends sharing a common inference pipeline.</p>
+            <div class="tags"><span class="tag">YOLOv11</span><span class="tag">OpenCV</span><span class="tag">Flask</span><span class="tag">Streamlit</span><span class="tag">REST API</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/Image-Text-Detection-App" target="_blank" rel="noreferrer">Source code <span>↗</span></a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">Supply Chain Dashboard</div><div class="project-type">BI + Operations</div></div><div class="project-icon">📦</div></div>
+            <p class="project-desc">Power BI dashboard for sales, inventory, supplier, shipping and profitability analysis — focused on turning operational data into actionable business questions.</p>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">Supply Chain</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/Supply-Chain-Dashboard" target="_blank" rel="noreferrer">Source code <span>↗</span></a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><div><div class="project-title">WPCB Circular Supply Chain</div><div class="project-type">Optimization + Sustainability</div></div><div class="project-icon">♻️</div></div>
+            <p class="project-desc">Mixed Integer Linear Programming model for closed-loop electronic-waste supply-chain design, including reverse logistics, recycling, capacity and demand constraints.</p>
+            <div class="tags"><span class="tag">MILP</span><span class="tag">AMPL</span><span class="tag">Reverse Logistics</span><span class="tag">Circular Economy</span><span class="tag">Optimization</span></div>
+            <div class="project-links"><a class="link" href="https://github.com/Optimus0205/WPCB-Circular-Supply-Chain" target="_blank" rel="noreferrer">Source code <span>↗</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="section-kicker">03 / Experience</div><h2>Technical work with people in the loop.</h2></div>
+          <p class="section-intro">Beyond individual projects, I’ve worked on analytics and team-based engineering problems where communication and execution matter.</p>
+        </div>
+        <div class="experience">
+          <article class="timeline-card">
+            <div class="time">Experience</div>
+            <div class="role">Data Science Intern</div>
+            <div class="org">Xylofi AI</div>
+            <p>Worked on practical analytics and machine-learning workflows, including sales forecasting and data-driven analysis.</p>
+            <ul>
+              <li>Built a sales forecasting dashboard and experimented with time-series forecasting.</li>
+              <li>Explored anomaly detection and product segmentation for decision support.</li>
+              <li>Worked across Python, data analysis and interactive visualization.</li>
+            </ul>
+          </article>
+          <article class="timeline-card">
+            <div class="time">Leadership</div>
+            <div class="role">Captain · Team Revanta</div>
+            <div class="org">NIT Jamshedpur · Solar EV Team</div>
+            <p>Led a multidisciplinary student engineering team working toward a solar electric vehicle build.</p>
+            <ul>
+              <li>Coordinated work across technical sub-teams and junior members.</li>
+              <li>Focused on planning, delegation and communication before execution.</li>
+              <li>Gained hands-on exposure to vehicle design and engineering trade-offs.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div class="contact-card">
+          <div class="section-kicker">04 / Contact</div>
+          <h3>Let’s build something useful.</h3>
+          <p class="muted">I’m interested in opportunities where data, AI and engineering come together to solve practical problems.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="mailto:0204ashutosh@gmail.com">Start a conversation ↗</a><a class="btn btn-ghost" href="https://github.com/Optimus0205" target="_blank" rel="noreferrer">View GitHub ↗</a></div>
+        </div>
+        <div class="panel contact-list">
+          <a class="contact-item" href="mailto:0204ashutosh@gmail.com"><small>Email</small><span>0204ashutosh@gmail.com</span></a>
+          <a class="contact-item" href="https://www.linkedin.com/in/ashutosh-s2504/" target="_blank" rel="noreferrer"><small>LinkedIn</small><span>linkedin.com/in/ashutosh-s2504</span></a>
+          <a class="contact-item" href="https://github.com/Optimus0205" target="_blank" rel="noreferrer"><small>GitHub</small><span>github.com/Optimus0205</span></a>
+          <div class="contact-item"><small>Based at</small><span>NIT Jamshedpur · India</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner"><span>© 2026 Ashutosh Singh</span><span>Designed for recruiters · built for the web</span></div>
+  </footer>
+</body>
+</html>
